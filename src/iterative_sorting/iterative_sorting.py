@@ -28,14 +28,20 @@ def selection_sort(arr):
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
-    for i in range(0, len(arr)-1):
-        current_index = i
-        smallest_index = current_index
-        for j in range(current_index + 1, len(arr)):
-            if arr[j] < arr[smallest_index]:
-                smallest_index = j
-        arr[smallest_index], arr[current_index] = arr[current_index], arr[smallest_index]
+    # assume that the array is not sorted
+    sorted = False
 
+    # make this loop as long as the array isn't sorted
+    while not sorted:
+
+        # assume the is sorted
+        sorted = True
+        for i in range(0, len(arr) - 1):
+            # camper in the first item with next one , if less then the array is sorted
+            if arr[i] > arr[i+1]:
+                sorted = False
+                # swap the postions
+                arr[i], arr[i+1] = arr[i+1], arr[i]
     return arr
 
 
