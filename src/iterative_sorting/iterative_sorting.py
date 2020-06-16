@@ -16,24 +16,30 @@ def selection_sort(arr):
     # #     # TO-DO: swap
     # #     # Your code here
     #     arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
-        for j in range(i + 1, len(arr)):
-            if arr[j] < arr[cur_index]:
-                cur_index = j
+        for j in range(cur_index + 1, len(arr)):
+            if arr[j] < arr[smallest_index]:
+                smallest_index = j
 
-        if cur_index != 0:
-            arr[cur_index], arr[i] = arr[i], arr[cur_index]
+        arr[smallest_index], arr[cur_index] = arr[cur_index], arr[smallest_index]
 
     return arr
-
-
-print(selection_sort([2, 1, 0, 5, 3]))
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
+    for i in range(0, len(arr)-1):
+        current_index = i
+        smallest_index = current_index
+        for j in range(current_index + 1, len(arr)):
+            if arr[j] < arr[smallest_index]:
+                smallest_index = j
+        arr[smallest_index], arr[current_index] = arr[current_index], arr[smallest_index]
 
     return arr
+
+
+print(bubble_sort([2, 1, 0, 5, 3]))
 
 
 '''
